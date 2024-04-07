@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import Header from "./components/header";
-import Container from "./components/container";
-import SideBar from "./components/sidebar";
-import useResponsive from "./hooks/use-responsive";
-import ResponsiveMain from "./components/responsive-main";
+import Header from "../components/header";
+import Container from "../components/container";
+import SideBar from "../components/sidebar";
+import Provider from "./StoreProvider";
+import ResponsiveMain from "../components/responsive-main";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,16 +23,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <div className="flex">
-          <SideBar />
-          <main className="flex-1">
-            <ResponsiveMain>
-              <Header />
-              {/* <HeaderMobile /> */}
-              <Container>{children}</Container>
-            </ResponsiveMain>
-          </main>
-        </div>
+        <Provider>
+          <div className="flex">
+            <SideBar />
+            <main className="flex-1">
+              <ResponsiveMain>
+                <Header />
+                {/* <HeaderMobile /> */}
+                <Container>{children}</Container>
+              </ResponsiveMain>
+            </main>
+          </div>
+        </Provider>
       </body>
     </html>
   );

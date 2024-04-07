@@ -6,10 +6,11 @@ import {
   InboxStackIcon,
 } from "@heroicons/react/24/outline";
 import useResponsive from "../hooks/use-responsive";
-import Logo from "../assets/logo.png";
+import Logo from "../app/favicon.ico";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import DarkModeSwitch from "./dark-mode-switch";
 
 const menuItems = [
   { name: "Home", Icon: HomeIcon, href: "/" },
@@ -28,9 +29,8 @@ const SideBar = () => {
         showSidebar ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      {/* flex-start */}
       <div className="flex items-center justify-items-start h-16 mb-4 p-4">
-        <Image src={Logo} alt="logo" className="h-11 w-8" />
+        <Image src={Logo} alt="logo" className="h-10 w-10" />
       </div>
       {menuItems.map((item) => (
         <Link
@@ -44,6 +44,8 @@ const SideBar = () => {
           {item.name}
         </Link>
       ))}
+      {/* Dark mode switch */}
+      <DarkModeSwitch classNames="mt-auto" />
     </div>
   );
 };
