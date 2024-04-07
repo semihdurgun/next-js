@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 
 function DarkModeSwitch({ classNames }: { classNames?: string }) {
   const { theme, setTheme } = useTheme();
   const [isHovered, setIsHovered] = useState(false);
+  const isSystemDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  useEffect(() => {
+    if (isSystemDark && theme === "system") {
+      setTheme("dark");
+    }
+  }, [theme]);
 
   return (
     <button

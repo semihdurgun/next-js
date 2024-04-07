@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import useResponsive from "../hooks/use-responsive";
 import { Bars3Icon, ArrowRightIcon } from "@heroicons/react/24/solid";
-import Logo from "../app/favicon.ico";
+import Logo from "../public/assets/favicon.ico";
 import Image from "next/image";
 import DarkModeSwitch from "./dark-mode-switch";
 import { useDispatch, useSelector } from "react-redux";

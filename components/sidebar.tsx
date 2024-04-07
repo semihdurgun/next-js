@@ -8,7 +8,7 @@ import {
   Bars3BottomLeftIcon,
 } from "@heroicons/react/24/outline";
 import useResponsive from "../hooks/use-responsive";
-import Logo from "../app/favicon.ico";
+import Logo from "../public/assets/favicon.ico";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
