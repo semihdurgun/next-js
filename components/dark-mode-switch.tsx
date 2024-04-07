@@ -1,21 +1,27 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
-import { RootState } from "@/lib/store";
-import { toggleDarkMode } from "@/lib/slices/ui";
+import { useTheme } from "next-themes";
 
 function DarkModeSwitch({ classNames }: { classNames?: string }) {
-  const darkMode = useSelector((state: RootState) => state.ui.darkMode);
-  const dispatch = useDispatch();
+  const { theme, setTheme } = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <button
-      className={`flex items-center justify-center w-full p-2 rounded-lg cursor-pointer ${classNames}`}
+      className={`flex items-center justify-center p-1 rounded-lg cursor-pointer ${classNames}`}
       onClick={() => {
-        dispatch(toggleDarkMode());
+        setTheme(theme === "dark" ? "light" : "dark");
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {darkMode ? (
+      {isHovered ? (
+        theme === "dark" ? (
+          <SunIcon className="h-6 w-6 text-yellow-500" />
+        ) : (
+          <MoonIcon className="h-6 w-6 text-gray-500" />
+        )
+      ) : theme === "dark" ? (
         <MoonIcon className="h-6 w-6 text-gray-500" />
       ) : (
         <SunIcon className="h-6 w-6 text-yellow-500" />

@@ -2,23 +2,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface UIState {
-    darkMode: boolean;
+    isCollapse: null | boolean;
 }
 
 const initialState: UIState = {
-    darkMode: false,
+    isCollapse: null,
 };
 
 export const uiSlice = createSlice({
-    name: "ui",
+    name: "auth",
     initialState,
     reducers: {
-        toggleDarkMode: (state) => {
-            state.darkMode = !state.darkMode;
+        setCollapse: (state, action: PayloadAction<boolean>) => {
+            state.isCollapse = action.payload;
         },
+        setToggleCollapse: (state) => {
+            state.isCollapse = !state.isCollapse;
+        }
     },
 });
 
-export const { toggleDarkMode } = uiSlice.actions;
+export const { setCollapse, setToggleCollapse } = uiSlice.actions;
 
 export default uiSlice.reducer;
