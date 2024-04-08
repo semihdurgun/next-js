@@ -34,9 +34,11 @@ const SideBar = () => {
 
   return (
     <div
-      className={`flex flex-col items-start justify-start bg-white dark:bg-black dark:text-white rounded-r-2xl h-screen z-20 fixed p-4 transform transition-width duration-500 ease-in-out ${
+      className={`flex flex-col items-start justify-start bg-white dark:bg-black dark:text-white rounded-r-2xl h-screen z-20 fixed p-4 transform ${
         showSidebar ? "translate-x-0" : "-translate-x-full"
-      } ${isCollapse ? "w-16" : "w-56"}`}
+      } ${
+        isCollapse ? "transition-width ease-in-out duration-500 w-16" : "w-56"
+      }`}
     >
       <button
         className="fixed h-6 w-6 ml-auto cursor-pointer right-4"

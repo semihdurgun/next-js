@@ -13,7 +13,7 @@ function DarkModeSwitch({ classNames }: { classNames?: string }) {
     if (isSystemDark && theme === "system") {
       setTheme("dark");
     }
-  }, [theme]);
+  }, [isSystemDark, theme, setTheme]);
 
   return (
     <button

@@ -9,14 +9,14 @@ export default function ResponsiveMain({ children }: { children: ReactNode }) {
   const { isCollapse } = useSelector((state: RootState) => state.ui);
   return (
     <div
-      className={`flex flex-col min-h-screen transform transition-transform duration-500 ease-in-out
-    ${
-      showSidebar
-        ? isCollapse
-          ? "translate-x-24 collapse-w-calc"
-          : "translate-x-56 w-calc"
-        : "translate-x-0"
-    }`}
+      className={`flex flex-col min-h-screen transform
+      ${
+        showSidebar
+          ? isCollapse
+            ? "transition-width ease-in-out duration-500 translate-x-24 collapse-w-calc"
+            : "translate-x-56 w-calc"
+          : "translate-x-0"
+      }`}
     >
       {children}
     </div>

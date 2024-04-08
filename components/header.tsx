@@ -104,8 +104,8 @@ const Header = () => {
                 onClick={handleProfileMenuClick}
               >
                 <span className="font-semibold text-sm">
-                  {user?.name.split(" ")[0][0]}
-                  {user?.name.split(" ")[1][0]}
+                  {user?.name?.split(" ")[0][0]}
+                  {user?.name?.split(" ")[1][0]}
                 </span>
               </div>
               {isProfileMenuOpen && (
